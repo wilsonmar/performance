@@ -1,4 +1,7 @@
 apply plugin: 'scala'
+apply plugin: 'idea'
+
+
 
 
 repositories {
@@ -11,21 +14,26 @@ dependencies {
     compile group: 'io.gatling', name: 'gatling-app', version: gatlingVersion
     compile group: 'io.gatling', name: 'gatling-recorder', version: gatlingVersion
     compile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: gatlingVersion
-    //compile group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.11.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+
 
 }
 
 
-task queryProfileLoadTest(dependsOn: 'compileTestScala') << {
-    javaexec {
+task queryProfileLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Query Profile API"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+           "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector",
+            "--results-folder", "${buildDir}/gatling-results",
 
-        classpath = sourceSets.test.runtimeClasspath + sourceSets.test.resources
-        //classpath += sourceSets.test.resources
-        main = 'io.gatling.app.Gatling'
-          args  '-s', 'performance.simulations.Injector',                   //The simulation to run
-                '-rf', 'build/reports/gatling'            //place to put the report
-    }
+    ]
 }
-
+def logbackGatlingConfig() {
+    return sourceSets.test.resources.find { it.name == 'logback.xml' };
+}
