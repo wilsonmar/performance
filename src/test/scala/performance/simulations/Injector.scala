@@ -53,7 +53,7 @@ class Injector extends Simulation {
     details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lessThan( errorRate),
     details(postRequest.grpCauses / "ListCauses" ).responseTime.mean.lessThan( meanResponseTime),
     details(postRequest.grpCauses / "ListCauses" ).failedRequests.percent.lessThan( errorRate),
-    details(postRequest.grpSDG / "ListSGG" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpSDG / "ListSDG" ).responseTime.mean.lessThan( meanResponseTime),
     details(postRequest.grpSDG / "ListSDG" ).failedRequests.percent.lessThan( errorRate),
     details(postRequest.grpStory / "CreateStory" ).responseTime.mean.lessThan( meanResponseTime),
     details(postRequest.grpStory / "CreateStory" ).failedRequests.percent.lessThan( errorRate),

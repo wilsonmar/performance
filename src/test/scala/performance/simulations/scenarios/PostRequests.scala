@@ -6,41 +6,43 @@ import performance.simulations.lib.CommonHeader._
 import performance.simulations.lib.JenkinsParam._
 
 /**
- * Created by Tarun Kale
- */
+  * Created by Tarun Kale
+  */
 
-class PostRequests extends Simulation{
+class PostRequests extends Simulation {
 
   val headers_common = Map(
     "Content-Type" -> "application/json",
     "Accept" -> "application/json",
-    "Authorization" -> "Bearer eyJraWQiOiIyMTIiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiYUpZQWRuY2pQRkdodjFXVjZEc2VWUSIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQwdDAwMDAwMDhmeDlFQUEvMDA1MHQwMDAwMDBYN2JHQUFTIiwiYXVkIjoiM01WRzlpZm1BS0NISVNiYVR6Q3JuQWx3SVhmTERNNGV2UUxmcTZDVkpIVnd2ZzdrOHR3VGVReHJzYWszMGhERHo0VHppNzFncC56bUZLbXVfRWxnciIsImlzcyI6Imh0dHBzOi8vcWEyLXBoaWxhbnRocm9weWNsb3VkLmNzNzcuZm9yY2UuY29tLyIsImV4cCI6MTUyMjk3MjUyNywiaWF0IjoxNTIyOTcyNDA3LCJub25jZSI6IjE1MjI5NzIzNTg4NTUwMCIsImN1c3RvbV9hdHRyaWJ1dGVzIjp7IlVzZXJuYW1lIjoidGVzdHVzZXJAc2FsZXNmb3JjZS5jb20ucWEyIn19.fzgrs50-wJvSdboRCmB3SvftgEm3GemjnAIZp1FTrrIZBcvGTXI23gTWfpUPImXnEkxuwZ3yoOhS5KY48uFZ-XJ057enP36EBWXFcfEx2DvvYeuNvMvoAKmOoHBr4tLa7SB3NNoCtmwm3QdOA22AvxAeVlnO8s3fbYzVLp2N9ual2Rtf2VftFVnHZgkxz_wkOWDk9-lgcimuEZ9Cmq9ZgAS86W6E3eOS_eSlyUeDCmc5b9bc3ZnDkNpXsyRs61dDXsdcl8C4TYz4DmKqBwgRtOzEWb92UMCsEeSQ3KJ8upRp06RX0ivzlEIPkSu6BIDHI24Ijrz6-gjobWlthnb1QlfAExQt08pQLhXrOzYO717I164ek3Nt4E_1rCUlIRxN7dLa2-S79j7906Gr1CoH-1EYuQzMJJymyOrRrJfJwYBGGPtYNvtj8A-r62rZHDZdp8oRZuAR2Gk8KFl0glWNvDzTm4tCZPdgkn3e7t0zOqdOPgk8xeHEpBY0aSjfzlSDgJ0KQC2S33Gc3SKBS36JgyuM9siQNW75tjyMAJUxIECPdAqX1_HTfqmU6c2mIdLt5ddz_UdV2PX_FqzRuZHpQPxwjeoEcmgf5bJwCNcNiQnikhKAUvhCDqWeaCqLuqepOfRjj5Bxz3DIqF3gzdJqNTnte_wZ7CAS8i1iCxaLfTY"
+    "Authorization" -> "Bearer eyJraWQiOiIyMTIiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoicWMxbGdhbHdfSjE3LUkybklSUHg1ZyIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQwdDAwMDAwMDhmeDlFQUEvMDA1MHQwMDAwMDBYN2JHQUFTIiwiYXVkIjoiM01WRzlpZm1BS0NISVNiYVR6Q3JuQWx3SVhmTERNNGV2UUxmcTZDVkpIVnd2ZzdrOHR3VGVReHJzYWszMGhERHo0VHppNzFncC56bUZLbXVfRWxnciIsImlzcyI6Imh0dHBzOi8vcWEyLXBoaWxhbnRocm9weWNsb3VkLmNzNzcuZm9yY2UuY29tLyIsImV4cCI6MTUyMzAwMTcyOCwiaWF0IjoxNTIzMDAxNjA4LCJub25jZSI6IjE1MjMwMDE1NzI3MzQwMCIsImN1c3RvbV9hdHRyaWJ1dGVzIjp7IlVzZXJuYW1lIjoidGVzdHVzZXJAc2FsZXNmb3JjZS5jb20ucWEyIn19.XOBMhZaL6TCNHiO_eJpyZuYcoJNT3O82pOGpe6Pi3lx5i7M0emmoZEaxtO-A6rAK7DV_SWloj3C_eixUI3qhcvzvMksEHbfaS_Dk-IFU3KgNCas7KYDNdtLyspMHST_8ffnDNNm_wx--g4yBvL4cozhjWtKK4NEftpoOD6wBMg7Rvbht4e8QMSzdyVeDMZDuHEf1ptE8FEDdyV57_3IJada4hbcy-XqFzRZePQ5dDcK5p4mVnIiuuaIXid79PrBFauMK1c74qP7tec8grwHVYgSHS_rZqPQzSIp5XjBAQRZ6Fem7B40Y8krrX4m__4HU384plf8YJdTdoFfyeXE9aLzj7GQLksQ-iulTvyGDwLGuzhGwfDbiRWUG-qCRTQUbVvS7zXn8bLJOhignXN8wcRiSGUfDoBoc1rirF-ybvwVR8UuWRPY_utxfJPKGBsAVga39OsVu6mVFGYomfFqSWhFLKhvKoaLn5YFfjqCDkjo8iDj0qzGfysKaQTD588dR1NSJ15_hOOA81JBSEzI-qQexIXf8IKBS72OtHscVyFlvH1ZCgIWHopIGDbdrQhJKqyPvb0ZMaIjVwBznGKlYWXziD_f8UuBouz3rljBTm83BKPguSSR9rGru2sdfvXrCA3ChwT6J2UiYWLKJmxuaE56bZ0IAVXM4DO5alQ-36Ro"
   )
 
 
-  // User Profile
+  /* Load Tests on User Profile usecases*/
 
   val grpProfile = "UserProfile"
+
+  // Query User Profile
 
   val scnQueryUserProfile = scenario("UserProfile").group(grpProfile) {
     feed(timestampFeeder)
       .exec(
-      http("QueryUserProfile")
-        .post("""/graphql""")
+        http("QueryUserProfile")
+          .post("""/graphql""")
           .headers(headers_common)
-        .body(StringBody(
-          """{
+          .body(StringBody(
+            """{
               "query": "{\n  me {\n    person {\n      id\n      firstName\n      lastName\n      jobTitle\n      email\n     organizations {\n        id\n        name\n        __typename\n      }\n  }\n    __typename\n  }\n}\n"
             }""")).asJSON
-        .check(status.is(200))
-    )
-
-
+          .check(status.is(200))
+      )
   }
 
-  //Person
+  /* Load Tests on Person usecases*/
 
   val grpPerson = "Person"
+
+  // Is Person Active
 
   val scnIsPersonActive = scenario("IsPersonActive").group(grpPerson) {
     feed(timestampFeeder)
@@ -54,16 +56,14 @@ class PostRequests extends Simulation{
               }""")).asJSON
           .check(status.is(200))
       )
-
-
   }
 
 
-
-  // Causes
+  /* Load Tests on Causes usecases */
 
   val grpCauses = "Causes"
 
+  // List Causes
   val scnListCauses = scenario("ListCauses").group(grpCauses) {
     feed(timestampFeeder)
       .exec(
@@ -76,11 +76,9 @@ class PostRequests extends Simulation{
               }""")).asJSON
           .check(status.is(200))
       )
-
-
   }
 
-
+  // Update Pref Causes
   val scnUpdatePrefCauses = scenario("UpdatePrefCauses").group(grpCauses) {
     feed(timestampFeeder)
       .exec(
@@ -93,16 +91,15 @@ class PostRequests extends Simulation{
               }""")).asJSON
           .check(status.is(200))
       )
-
-
   }
 
 
-
-  // Sustainable Development Goals
+  /* Load Tests on Sustainable Development Goals usecases */
 
   val grpSDG = "SDG"
-  val scnListSDG = scenario("ListSDGs").group(grpCauses) {
+
+  // List SDG
+  val scnListSDG = scenario("ListSDG").group(grpSDG) {
     feed(timestampFeeder)
       .exec(
         http("ListSDG")
@@ -114,15 +111,14 @@ class PostRequests extends Simulation{
               }""")).asJSON
           .check(status.is(200))
       )
-
-
   }
 
 
-  //Story
+  /* Load Tests on Story usecases */
 
   val grpStory = "Story"
 
+  // Create Story
   val scnCreateStory = scenario("CreateStory").group(grpStory) {
     feed(timestampFeeder)
       .exec(
@@ -137,6 +133,7 @@ class PostRequests extends Simulation{
   }
 
 
+  // Get Story
   val scnGetStory = scenario("GetStory").group(grpStory) {
     feed(timestampFeeder)
       .exec(
@@ -152,11 +149,11 @@ class PostRequests extends Simulation{
   }
 
 
-
-  //Compaign
+  /* Load Tests on Compaign usecases */
 
   val grpCompaign = "Compaign"
 
+  // Create Compaign
   val scnCreateCompaign = scenario("CreateCompaign").group(grpCompaign) {
     feed(timestampFeeder)
       .exec(
@@ -171,6 +168,7 @@ class PostRequests extends Simulation{
       )
   }
 
+  // Get Compaign
   val scnGetCompaign = scenario("GetCompaign").group(grpCompaign) {
     feed(timestampFeeder)
       .exec(
@@ -186,10 +184,11 @@ class PostRequests extends Simulation{
   }
 
 
-  //Impact Fund
+  /* Load Tests on Impact Fund usecases */
 
   val grpImpactFund = "ImpactFund"
 
+  // Create Impact Fund
   val scnCreateImpactFund = scenario("CreateImpactFund").group(grpImpactFund) {
     feed(timestampFeeder)
       .exec(
@@ -204,6 +203,8 @@ class PostRequests extends Simulation{
       )
   }
 
+
+  // Get Impact Fund
   val scnGetImpactFund = scenario("GetImpactFund").group(grpImpactFund) {
     feed(timestampFeeder)
       .exec(
@@ -219,9 +220,11 @@ class PostRequests extends Simulation{
   }
 
 
-  //Organization
+  /* Load Tests on Organization usecases */
 
   val grpOrganization = "Organization"
+
+  // Get Organization
   val scnGetOrganization = scenario("GetOrganization").group(grpOrganization) {
     feed(timestampFeeder)
       .exec(
@@ -237,10 +240,11 @@ class PostRequests extends Simulation{
   }
 
 
-
-  //Settings
+  /* Load Tests on Settings usecases */
 
   val grpSettings = "Settings"
+
+  // Save Home Page Settings
   val scnHomePageSettings = scenario("HomePageSettings").group(grpSettings) {
     feed(timestampFeeder)
       .exec(
@@ -256,9 +260,11 @@ class PostRequests extends Simulation{
   }
 
 
-  //Npo Page
+  /* Load Tests on Npo Page usecases */
 
   val grpNpoPage = "NpoPage"
+
+  // Create NPO page
   val scnCreateNpoPage = scenario("CreateNpoPage").group(grpNpoPage) {
     feed(timestampFeeder)
       .exec(
