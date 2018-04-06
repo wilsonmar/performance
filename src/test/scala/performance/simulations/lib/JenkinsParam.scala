@@ -9,8 +9,8 @@ import java.lang._
 
 object JenkinsParam {
 
-  val TEST_URL : String = sys.env.getOrElse("TEST_URL","https://ngp-perf-zuulapp.makanaplatform.com")
-
+  //val TEST_URL : String = sys.env.getOrElse("TEST_URL","https://ngp-perf-zuulapp.makanaplatform.com")
+  val TEST_URL : String = sys.env.getOrElse("TEST_URL","http://ngp-perf-incaapp.herokuapp.com")
   val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","1"))
 
   val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","120"))
