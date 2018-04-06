@@ -19,7 +19,7 @@ dependencies {
 }
 
 
-task queryProfileLoadTest(type: JavaExec) {
+task incaLoadTest(type: JavaExec) {
     dependsOn testClasses
     description = "Query Profile API"
     group = "Load Test"

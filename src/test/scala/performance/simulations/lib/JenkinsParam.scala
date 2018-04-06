@@ -13,12 +13,12 @@ object JenkinsParam {
 
   val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","1"))
 
-  val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","30"))
-  val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","300"))
+  val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","120"))
+  val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","900"))
 
   val meanResponseTime: Int = Integer.parseInt( getSetting("meanResponseTime", "1000"))
-  val response95th: Int = Integer.parseInt( getSetting("response95th", "300"))
-  val response99th: Int = Integer.parseInt( getSetting("response99th", "400"))
+  val response95th: Int = Integer.parseInt( getSetting("response95th", "1200"))
+  val response99th: Int = Integer.parseInt( getSetting("response99th", "1400"))
 
   val errorRate : Int =  Integer.parseInt(getSetting("errorRate", "1"))
 
