@@ -176,7 +176,7 @@ class PostRequests extends Simulation {
           .post("/graphql")
           .headers(headers_common)
           .body(StringBody(
-            "{\n  \"query\": \"query {\\n           organization(\\n              id: 1014\\n             )\\n          {\\n          id,\\n            selectableContent(q:\\\"<campaignName>\\\"){\\n          __typename ... on Campaign {\\n          id,name\\n          }\\n          }\\n        }\\n      }\"\n}"
+            "{\n  \"query\": \"query {\\n           organization(\\n              id: 1000\\n             )\\n          {\\n          id,\\n            selectableContent(q:\\\"<campaignName>\\\"){\\n          __typename ... on Campaign {\\n          id,name\\n          }\\n          }\\n        }\\n      }\"\n}"
 
           )).asJSON
           .check(status.is(200))
