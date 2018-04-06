@@ -30,11 +30,52 @@ class Injector extends Simulation {
   setUp(
 
     // Load Injection
-    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnIsPersonActive.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnListCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnListSDG.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateStory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetStory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateCompaign.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetCompaign.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateImpactFund.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetImpactFund.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetOrganization.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+
   ).assertions (
 
     details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lessThan( meanResponseTime),
-    details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lessThan( errorRate)
+    details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpCauses / "ListCauses" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpCauses / "ListCauses" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpSDG / "ListSGG" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpSDG / "ListSDG" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpStory / "CreateStory" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpStory / "CreateStory" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpStory / "GetStory" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpStory / "GetStory" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpCompaign / "CreateCompaign" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpCompaign / "CreateCompaign" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpCompaign / "GetCompaign" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpCompaign / "GetCompaign" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpImpactFund / "CreateImpactFund" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpImpactFund / "CreateImpactFund" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpImpactFund / "GetImpactFund" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpImpactFund / "GetImpactFund" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpOrganization / "GetOrganization" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpOrganization / "GetOrganization" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpCauses / "UpdatePrefCauses" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpCauses / "UpdatePrefCauses" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lessThan( errorRate),
+    details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lessThan( meanResponseTime),
+    details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lessThan( errorRate)
+
   )
 
   after {
