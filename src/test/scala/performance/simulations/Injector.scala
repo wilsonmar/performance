@@ -43,8 +43,8 @@ class Injector extends Simulation {
     postRequest.scnGetOrganization.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
 
@@ -75,9 +75,9 @@ class Injector extends Simulation {
     details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpSettings / "BrandSetgings").responseTime.mean.lte( errorRate),
-    details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lte( errorRate)
+    details(postRequest.grpSettings / "BrandSetgings").responseTime.mean.lte( errorRate)
+    //details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
+    //details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lte( errorRate)
 
   )
 
