@@ -75,7 +75,7 @@ class Injector extends Simulation {
     details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpSettings / "BrandSetgings").responseTime.mean.lte( errorRate)
+    details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( errorRate)
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lte( errorRate)
 
