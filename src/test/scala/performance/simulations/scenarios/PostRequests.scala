@@ -302,7 +302,7 @@ class PostRequests extends Simulation {
 
   /* Load Tests on Npo Page usecases */
 
-  val grpNpoPage = "NpoPage"
+  /*val grpNpoPage = "NpoPage"
 
   // Create NPO page
   val scnCreateNpoPage = scenario("CreateNpoPage").group(grpNpoPage) {
@@ -317,6 +317,6 @@ class PostRequests extends Simulation {
           .check(status.is(200))
           .check(jsonPath("$.errors").validate(isNull[String]))
       )
-  }
+  }*/
 
 }
