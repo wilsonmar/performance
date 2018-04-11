@@ -18,6 +18,10 @@ dependencies {
 
 }
 
+def logbackGatlingConfig() {
+    return sourceSets.test.resources.find { it.name == 'logback.xml' };
+}
+
 
 task incaLoadTest(type: JavaExec) {
     dependsOn testClasses
@@ -34,6 +38,21 @@ task incaLoadTest(type: JavaExec) {
 
     ]
 }
-def logbackGatlingConfig() {
-    return sourceSets.test.resources.find { it.name == 'logback.xml' };
+
+
+
+task sandboxGreenSanityLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Query Profile API"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_SandboxGreen",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
 }
