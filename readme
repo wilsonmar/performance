@@ -1,0 +1,13 @@
+This document provides the detailed information about the Performance framework.
+
+This project runs on gradle and can extend it to Maven as well incase if we need to switch it. The performance framework is
+built on Gatling which is Netty based Aka framework and extensively used for Microservices testing.
+
+Steps to run the Performance framework :
+
+1) Download or Clone the Performance framework code base
+2) Navigate to framework directory and run the below gradle command to trigger the Perf tests
+         
+         gradlew <<taskname>>
+         Ex: gradlew incaLoadTest
+
