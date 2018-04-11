@@ -11,12 +11,13 @@ object JenkinsParam {
 
   //val TEST_URL : String = sys.env.getOrElse("TEST_URL","http://ngp-perf-zuulapp.makanaplatform.com")
   val TEST_URL : String = sys.env.getOrElse("TEST_URL","http://ngp-perf-incaapp.herokuapp.com")
-  val TEST_URL_SANDBOX_GREEN : String = sys.env.getOrElse("TEST_URL","http://sandboxincaapp.herokuapp.com/")
+  val TEST_URL_SANDBOX_GREEN : String = sys.env.getOrElse("TEST_URL_SANDBOX_GREEN","http://sandboxincaapp.herokuapp.com/")
 
   val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","10"))
+  val peakRPS_SandboxGreen : Double =  Double.parseDouble( getSetting("peakRPS_SandboxGreen","6"))
 
   val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","120"))
-  val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","900"))
+  val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","1800"))
 
   val meanResponseTime: Int = Integer.parseInt( getSetting("meanResponseTime", "1000"))
   val response95th: Int = Integer.parseInt( getSetting("response95th", "1200"))

@@ -25,13 +25,13 @@ class Injector_SandboxGreen extends Simulation {
   val sandboxRequest = new SandboxGreenSanity
 
   before {
-    println("Starting LOAD test, Targeting POSTS only at  "+ peakRPS  + " rps." + "Steady state = " + steadyTime )
+    println("Starting LOAD test, Targeting POSTS only at  "+ peakRPS_SandboxGreen  + " rps." + "Steady state = " + steadyTime )
   }
 
   setUp(
 
     // Load Injection
-    sandboxRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    sandboxRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_SandboxGreen) during (rampTime seconds), constantUsersPerSec(peakRPS_SandboxGreen) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
 
