@@ -25,14 +25,14 @@ class Injector_QueryUserProfile extends Simulation {
   val postRequest = new PostRequests
 
   before {
-    println("Starting LOAD test, Targeting POSTS only at  "+ peakRPS  + " rps." + "Steady state = " + steadyTime )
+    println("Starting LOAD test, Targeting POSTS only at  "+ peakRPS_QueryUserProfile  + " rps." + "Steady state = " + steadyTime )
   }
 
 
   setUp(
 
     // Load Injection
-    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_QueryUserProfile) during (rampTime seconds), constantUsersPerSec(peakRPS_QueryUserProfile) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
 

@@ -15,6 +15,7 @@ object JenkinsParam {
 
   val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","3"))
   val peakRPS_SandboxGreen : Double =  Double.parseDouble( getSetting("peakRPS_SandboxGreen","5"))
+  val peakRPS_QueryUserProfile : Double =  Double.parseDouble( getSetting("peakRPS","10"))
 
   val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","120"))
   val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","900"))
