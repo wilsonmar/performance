@@ -56,3 +56,20 @@ task sandboxGreenSanityLoadTest(type: JavaExec) {
 
     ]
 }
+
+
+task queryUserProfileLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Query Profile API"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_QueryUserProfile",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
