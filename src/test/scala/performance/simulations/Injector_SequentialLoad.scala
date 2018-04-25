@@ -33,7 +33,7 @@ class Injector_SequentialLoad extends Simulation {
 
     // Load Injection
     postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnIsPersonActive.inject( nothingFor((steadyTime+rampTime+sleepTime) seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    //postRequest.scnIsPersonActive.inject( nothingFor((steadyTime+rampTime+sleepTime) seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnListCauses.inject( nothingFor(((steadyTime+rampTime)*2)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnListSDG.inject( nothingFor(((steadyTime+rampTime)*3)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnCreateStory.inject( nothingFor(((steadyTime+rampTime)*4)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
@@ -52,8 +52,8 @@ class Injector_SequentialLoad extends Simulation {
 
     details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lte( errorRate),
-    details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lte( errorRate),
+    //details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lte( meanResponseTime),
+    //details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpCauses / "ListCauses" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpCauses / "ListCauses" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpSDG / "ListSDG" ).responseTime.mean.lte( meanResponseTime),
