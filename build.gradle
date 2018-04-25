@@ -73,3 +73,20 @@ task queryUserProfileLoadTest(type: JavaExec) {
 
     ]
 }
+
+
+task incaSequentialLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Query Profile API"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_SequentialLoad",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
