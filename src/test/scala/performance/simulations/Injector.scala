@@ -31,7 +31,7 @@ class Injector extends Simulation {
   setUp(
 
     // Load Injection
-    //postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnIsPersonActive.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnListCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnListSDG.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
@@ -49,8 +49,8 @@ class Injector extends Simulation {
 
   ).assertions (
 
-    //details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
-    //details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lte( errorRate),
+    details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpCauses / "ListCauses" ).responseTime.mean.lte( meanResponseTime),
