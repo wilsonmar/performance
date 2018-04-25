@@ -20,6 +20,7 @@ object JenkinsParam {
 
   val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","120"))
   val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","900"))
+  val sleepTime: Int = Integer.parseInt(sys.env.getOrElse("sleepTime","120"))
 
   val meanResponseTime: Int = Integer.parseInt( getSetting("meanResponseTime", "1000"))
   val response95th: Int = Integer.parseInt( getSetting("response95th", "1200"))
