@@ -32,11 +32,14 @@ class Injector_SequentialLoad extends Simulation {
   setUp(
 
     // Load Injection
+
+    postRequest.scnCreateStory.inject(rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+
     //postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnIsPersonActive.inject( nothingFor((steadyTime+rampTime+sleepTime) seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnListCauses.inject( nothingFor(((steadyTime+rampTime)*1)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnListSDG.inject( nothingFor(((steadyTime+rampTime)*2)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnCreateStory.inject( nothingFor(((steadyTime+rampTime)*3)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+    //postRequest.scnCreateStory.inject( nothingFor(((steadyTime+rampTime)*3)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
     //postRequest.scnGetStory.inject( nothingFor(((steadyTime+rampTime)*4)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     /*postRequest.scnCreateCampaign.inject( nothingFor(((steadyTime+rampTime)*5)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnGetCampaign.inject( nothingFor(((steadyTime+rampTime)*6)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
