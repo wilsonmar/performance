@@ -34,6 +34,7 @@ class Injector_SequentialLoad extends Simulation {
     // Load Injection
     //postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnIsPersonActive.inject( nothingFor((steadyTime+rampTime+sleepTime) seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+<<<<<<< HEAD
     //postRequest.scnListCauses.inject( nothingFor(((steadyTime+rampTime)*1)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnListSDG.inject( nothingFor(((steadyTime+rampTime)*2)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnCreateStory.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
@@ -46,6 +47,20 @@ class Injector_SequentialLoad extends Simulation {
     //postRequest.scnUpdatePrefCauses.inject( nothingFor(((steadyTime+rampTime)*2)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnHomePageSettings.inject( nothingFor(((steadyTime+rampTime)*3)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
     //postRequest.scnBrandSettings.inject( nothingFor(((steadyTime+rampTime)*12)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+=======
+    postRequest.scnListCauses.inject( nothingFor(((steadyTime+rampTime)*2)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnListSDG.inject( nothingFor(((steadyTime+rampTime)*3)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateStory.inject( nothingFor(((steadyTime+rampTime)*4)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetStory.inject( nothingFor(((steadyTime+rampTime)*5)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateCampaign.inject( nothingFor(((steadyTime+rampTime)*6)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetCampaign.inject( nothingFor(((steadyTime+rampTime)*7)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateImpactFund.inject( nothingFor(((steadyTime+rampTime)*8)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetImpactFund.inject( nothingFor(((steadyTime+rampTime)*9)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetOrganization.inject( nothingFor(((steadyTime+rampTime)*10)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnUpdatePrefCauses.inject( nothingFor(((steadyTime+rampTime)*11)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnHomePageSettings.inject( nothingFor(((steadyTime+rampTime)*12)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnBrandSettings.inject( nothingFor(((steadyTime+rampTime)*13)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+>>>>>>> parent of f890a8d... changed the order of sleeptime
     //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
