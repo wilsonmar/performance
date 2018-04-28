@@ -33,8 +33,8 @@ class Injector_SequentialLoad extends Simulation {
 
     // Load Injection
 
-    postRequest.scnUpdatePrefCauses.inject( nothingFor(((steadyTime+rampTime)*10)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnHomePageSettings.inject( nothingFor(((steadyTime+rampTime)*11)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnHomePageSettings.inject( nothingFor(((steadyTime+rampTime)*1)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
 
 
     //postRequest.scnCreateStory.inject(rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
