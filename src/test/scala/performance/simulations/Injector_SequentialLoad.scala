@@ -33,8 +33,8 @@ class Injector_SequentialLoad extends Simulation {
 
     // Load Injection
 
-    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnHomePageSettings.inject( nothingFor(((steadyTime+rampTime)*1)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
+    //postRequest.scnHomePageSettings.inject( nothingFor(((steadyTime+rampTime)*1)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
 
 
     //postRequest.scnCreateStory.inject(rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
@@ -80,9 +80,9 @@ class Injector_SequentialLoad extends Simulation {
     details(postRequest.grpOrganization / "GetOrganization" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpOrganization / "GetOrganization" ).failedRequests.percent.lte( errorRate),
     */details(postRequest.grpCauses / "UpdatePrefCauses" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpCauses / "UpdatePrefCauses" ).failedRequests.percent.lte( errorRate),
-    details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate)
+    details(postRequest.grpCauses / "UpdatePrefCauses" ).failedRequests.percent.lte( errorRate)
+   // details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
+   // details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate)
     //details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( meanResponseTime),
     //details(postRequest.grpSettings / "BrandSettings").failedRequests.percent.lte( errorRate)
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
