@@ -51,8 +51,8 @@ class Injector extends Simulation {
 
     details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lte( errorRate),
-    details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lte( errorRate),
+    //details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lte( meanResponseTime),
+    //details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpCauses / "ListCauses" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpCauses / "ListCauses" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpSDG / "ListSDG" ).responseTime.mean.lte( meanResponseTime),
