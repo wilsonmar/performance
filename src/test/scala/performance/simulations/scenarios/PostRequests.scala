@@ -300,6 +300,28 @@ class PostRequests extends Simulation {
   }
 
 
+  /* Load Tests on Settings usecases */
+
+  val grpContentListing = "ContentListing"
+
+  // Save Home Page Settings
+  val scnContentListing = scenario("QueryContentListing").group(grpContentListing) {
+    feed(timestampFeeder)
+      .exec(
+        http("QueryContentListing")
+          .post("/graphql")
+          .headers(headers_common)
+          .body(StringBody(
+            "{\n  \"query\": \"query{\\n  contentListing(orgId: 2174, query: {keywords: \\\"ContentList\\\", maxResults: 50, offset: 0}) {\\n    total\\n    maxResults\\n    offset\\n    content {\\n      ...CMSList\\n      __typename\\n    }\\n    __typename\\n  }\\n}\\n\\nfragment CMSList on Content {\\n  ... on Story {\\n    ...StoryCMSList\\n    __typename\\n  }\\n  ... on ImpactFund {\\n    ...ImpactFundCMSList\\n    __typename\\n  }\\n  ... on Campaign {\\n    ...CampaignCMSList\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment StoryCMSList on Story {\\n  tag: __typename\\n  id\\n  name\\n  modifiedDate\\n  publishState\\n  author {\\n    id\\n    firstName\\n    lastName\\n    __typename\\n  }\\n}\\n\\nfragment ImpactFundCMSList on ImpactFund {\\n  tag: __typename\\n  id\\n  name\\n  modifiedDate\\n  publishState\\n  author {\\n    id\\n    firstName\\n    lastName\\n    __typename\\n  }\\n}\\n\\nfragment CampaignCMSList on Campaign {\\n  tag: __typename\\n  id\\n  name\\n  modifiedDate\\n  publishState\\n  author {\\n    id\\n    firstName\\n    lastName\\n    __typename\\n  }\\n}\\n\"\n}"
+
+          )).asJSON
+          .check(status.is(200))
+          .check(jsonPath("$.errors").validate(isNull[String]))
+      )
+  }
+
+
+
   /* Load Tests on Npo Page usecases */
 
   /*val grpNpoPage = "NpoPage"

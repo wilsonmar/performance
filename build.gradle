@@ -90,3 +90,20 @@ task incaSequentialLoadTest(type: JavaExec) {
 
     ]
 }
+
+
+task cmsQueryLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Load Test on CMS Query"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_CMSQuery",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
