@@ -42,9 +42,10 @@ class Injector extends Simulation {
     postRequest.scnCreateImpactFund.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnGetImpactFund.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnGetOrganization.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    //postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    //postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnContentListing.inject(rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
     //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
@@ -71,12 +72,14 @@ class Injector extends Simulation {
     details(postRequest.grpImpactFund / "GetImpactFund" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpOrganization / "GetOrganization" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpOrganization / "GetOrganization" ).failedRequests.percent.lte( errorRate),
-    details(postRequest.grpCauses / "UpdatePrefCauses" ).responseTime.mean.lte( meanResponseTime),
+    /*details(postRequest.grpCauses / "UpdatePrefCauses" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpCauses / "UpdatePrefCauses" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate),
-    details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpSettings / "BrandSettings").failedRequests.percent.lte( errorRate)
+    */details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpSettings / "BrandSettings").failedRequests.percent.lte( errorRate),
+    details(postRequest.grpContentListing / "QueryContentListing" ).responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpContentListing / "QueryContentListing" ).failedRequests.percent.lte( errorRate)
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lte( errorRate)
 

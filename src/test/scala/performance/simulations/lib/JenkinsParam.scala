@@ -13,14 +13,14 @@ object JenkinsParam {
   val TEST_URL : String = sys.env.getOrElse("TEST_URL","http://ngp-perf-incaapp.herokuapp.com")
   val TEST_URL_SANDBOX_GREEN : String = sys.env.getOrElse("TEST_URL_SANDBOX_GREEN","http://sandboxincaapp.herokuapp.com/")
 
-  val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","4"))
-  val peakRPS_SequentialLoad : Double =  Double.parseDouble( getSetting("peakRPS","4"))
+  val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","3"))
+  val peakRPS_SequentialLoad : Double =  Double.parseDouble( getSetting("peakRPS_SequentialLoad","4"))
   val peakRPS_SandboxGreen : Double =  Double.parseDouble( getSetting("peakRPS_SandboxGreen","5"))
   val peakRPS_QueryUserProfile : Double =  Double.parseDouble( getSetting("peakRPS_QueryUserProfile","1"))
   val peakRPS_QueryCMS : Double =  Double.parseDouble( getSetting("peakRPS_QueryCMS","10"))
 
   val rampTime : Int = Integer.parseInt(sys.env.getOrElse("rampTime","10"))
-  val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","600"))
+  val steadyTime: Int = Integer.parseInt(sys.env.getOrElse("steadyTime","900"))
   val sleepTime: Int = Integer.parseInt(sys.env.getOrElse("sleepTime","120"))
 
   val meanResponseTime: Int = Integer.parseInt( getSetting("meanResponseTime", "1000"))
