@@ -195,7 +195,7 @@ class PostRequests extends Simulation {
           .post("/graphql")
           .headers(headers_common)
           .body(StringBody(
-            "{\"operationName\":\"ContentDetails\",\"variables\":{\"id\":1430199,\"orgId\":2175},\"query\":\"query ContentDetails($orgId: Int!, $id: ID!) {\\n  organization(id: $orgId) {\\n    id\\n    content(id: $id) {\\n      ... on NpoPage {\\n        tag: __typename\\n        id\\n        name\\n        excerpt\\n        description\\n        primaryImageCrid\\n        ctaText\\n        category\\n        ein\\n        bridgeId\\n        craCrn\\n        isActive\\n        city\\n        state\\n        country\\n        relatedContent {\\n          ...ContentCard\\n          __typename\\n        }\\n      }\\n      ... on Story {\\n        tag: __typename\\n        id\\n        name\\n        excerpt\\n        subheading\\n        description\\n        primaryImageCrid\\n        featuredVideo\\n        ctaText\\n        relatedContent {\\n          ...ContentCard\\n          __typename\\n        }\\n      }\\n      ... on ImpactFund {\\n        tag: __typename\\n        id\\n        name\\n        excerpt\\n        subheading\\n        description\\n        primaryImageCrid\\n        featuredVideo\\n        ctaText\\n      }\\n      ... on Campaign {\\n        tag: __typename\\n        id\\n        name\\n        excerpt\\n        subheading\\n        description\\n        primaryImageCrid\\n        featuredVideo\\n        ctaText\\n        fundraisingGoal\\n        currency\\n      }\\n      __typename\\n    }\\n    __typename\\n  }\\n}\\n\\nfragment ContentCard on Content {\\n  ... on Story {\\n    ...StoryCard\\n    __typename\\n  }\\n  ... on ImpactFund {\\n    ...ImpactFundCard\\n    __typename\\n  }\\n  ... on Campaign {\\n    ...CampaignCard\\n    __typename\\n  }\\n  ... on NpoPage {\\n    ...NpoPageCard\\n    __typename\\n  }\\n  __typename\\n}\\n\\nfragment StoryCard on Story {\\n  tag: __typename\\n  id\\n  name\\n  primaryImageCrid\\n  primaryImageAlt\\n  excerpt\\n  category: primaryCauseName\\n  ctaText\\n}\\n\\nfragment ImpactFundCard on ImpactFund {\\n  tag: __typename\\n  id\\n  name\\n  primaryImageCrid\\n  primaryImageAlt\\n  excerpt\\n  category: primaryCauseName\\n  ctaText\\n}\\n\\nfragment CampaignCard on Campaign {\\n  tag: __typename\\n  id\\n  name\\n  primaryImageCrid\\n  primaryImageAlt\\n  excerpt\\n  category: primaryCauseName\\n  ctaText\\n}\\n\\nfragment NpoPageCard on NpoPage {\\n  id\\n  name\\n  tag: __typename\\n  excerpt\\n  description\\n  primaryImageCrid\\n  primaryImageAlt\\n  ctaText\\n  category: primaryCauseName\\n}\\n\"}"
+            "{\n  \"query\": \"query{\\n  campaign(id: 1430199) {\\n    id\\n    createdDate\\n    modifiedDate\\n    publishDate\\n    publishState\\n    expirationDate\\n    author {\\n      id\\n      firstName\\n      lastName\\n      jobTitle\\n      phone\\n      email\\n      avatar\\n      languagePreference\\n      address\\n      city\\n      state\\n      zip\\n      unitedWay\\n      gender\\n      workEmail\\n    }\\n    modifiedBy {\\n      id\\n      firstName\\n      lastName\\n      jobTitle\\n      phone\\n      email\\n      avatar\\n      languagePreference\\n      address\\n      city\\n      state\\n      zip\\n      unitedWay\\n      gender\\n      workEmail\\n    }\\n    causes {\\n      id\\n    }\\n    sdgs {\\n      id\\n    }\\n    localized {\\n      locale\\n      name\\n      subheading\\n      excerpt\\n      featuredVideo\\n      description\\n      primaryImageCrid\\n      primaryImageAlt\\n      ctaText\\n    }\\n    name\\n    subheading\\n    excerpt\\n    featuredVideo\\n    description\\n    primaryImageCrid\\n    primaryImageAlt\\n    primaryCauseName\\n    ctaText\\n    oneTimeAskLadder\\n    recurringTimeAskLadder\\n    fundraisingGoal\\n    currency\\n    allowLocalizedFunds\\n    allowNpoDesignation\\n    allowSpecifiedFunds\\n    impactFunds {\\n      id\\n      createdDate\\n      modifiedDate\\n      publishDate\\n      publishState\\n      expirationDate\\n      author {\\n        firstName\\n        lastName\\n        email\\n        zip\\n        gender\\n      }\\n      name\\n      localized {\\n        name\\n        subheading\\n        excerpt\\n        featuredVideo\\n        description\\n        primaryImageCrid\\n        primaryImageAlt\\n        ctaText\\n      }\\n    }\\n    npoPage {\\n      id\\n      name\\n      subheading\\n      primaryCauseName\\n      isActive\\n      city\\n      state\\n      country\\n    }\\n    scope {\\n      workplace {\\n        id\\n        name\\n        type\\n        roles\\n        postalCode\\n      }\\n      country\\n      whereRaised {\\n        id\\n        name\\n        type\\n        roles\\n        postalCode\\n      }\\n      location {\\n        longitude\\n        latitude\\n        radius\\n        unit\\n        label\\n      }\\n    }\\n  }\\n}\\n\"\n}"
 
           )).asJSON
           .check(status.is(200))
@@ -233,7 +233,7 @@ class PostRequests extends Simulation {
           .post("/graphql")
           .headers(headers_common)
           .body(StringBody(
-            "{\n  \"query\": \"query {\\n           organization(\\n              id: 2175\\n             )\\n          {\\n          id,\\n            selectableContent(q:\\\"Building financial assets for families\\\"){\\n          __typename ... on ImpactFund {\\n          id,name\\n          }\\n          }\\n        }\\n      }\"\n}"
+            "{\"query\":\"query{\\n  impactFund(id: 2210630) {\\n    id\\n    createdDate\\n    modifiedDate\\n    publishDate\\n    publishState\\n    expirationDate\\n    author {\\n      id\\n      firstName\\n      lastName\\n      email\\n      zip\\n      unitedWay\\n      gender\\n    }\\n    modifiedBy {\\n      id\\n      firstName\\n      lastName\\n      email\\n      zip\\n      unitedWay\\n      gender\\n    }\\n    causes {\\n      id\\n    }\\n    sdgs {\\n      id\\n    }\\n    subheading\\n    excerpt\\n    featuredVideo\\n    description\\n    primaryImageCrid\\n    primaryImageAlt\\n    primaryCauseName\\n    ctaText\\n    accountingCode\\n    localized {\\n      locale\\n    }\\n    scope {\\n      workplace {\\n        id\\n        name\\n        type\\n        roles\\n        isUnitedWay\\n      }\\n      country\\n      whereRaised {\\n        id\\n        roles\\n        name\\n        type\\n        isUnitedWay\\n      }\\n      location {\\n        latitude\\n        longitude\\n        radius\\n        unit\\n        label\\n      }\\n    }\\n  }\\n}\\n\"}"
 
           )).asJSON
           .check(status.is(200))
@@ -300,11 +300,11 @@ class PostRequests extends Simulation {
   }
 
 
-  /* Load Tests on Settings usecases */
+  /* Load Tests on Content Listing usecases */
 
   val grpContentListing = "ContentListing"
 
-  // Save Home Page Settings
+  // Query Content List
   val scnContentListing = scenario("QueryContentListing").group(grpContentListing) {
     feed(timestampFeeder)
       .exec(
@@ -320,6 +320,58 @@ class PostRequests extends Simulation {
       )
   }
 
+
+  /* Load Tests on Job usecases */
+
+  val grpJob = "Job"
+
+  // Get Job details
+  val scnQueryJobDetails = scenario("QueryJobDetails").group(grpJob) {
+    feed(timestampFeeder)
+      .exec(
+        http("QueryJobDetails")
+          .post("/graphql")
+          .headers(headers_common)
+          .body(StringBody(
+            "{\n  \"query\": \"query job {\\n  job(j:{id:\\\"NakLoGZ7SI\\\", orgId:2175}){\\n    id\\n    operation\\n    orgId\\n    object\\n    state\\n    fileName\\n    resultLocation\\n    startDateLong\\n    endDateLong\\n    signedUrl\\n    deferWelcomeEmails\\n    numberTotal\\n    numberNgpCompleted\\n    numberNgpFailed\\n    numberFinalCompleted\\n    numberFinalFailed\\n  }\\n}\"\n}"
+          )).asJSON
+          .check(status.is(200))
+          .check(jsonPath("$.errors").validate(isNull[String]))
+      )
+  }
+
+  // Query Job History
+
+  val scnQueryJobHistory = scenario("QueryJobHistory").group(grpJob) {
+    feed(timestampFeeder)
+      .exec(
+        http("QueryJobHistory")
+          .post("/graphql")
+          .headers(headers_common)
+          .body(StringBody(
+            "{\n  \"query\": \"query jobHistory {\\n  jobHistory(orgId: 2175) {\\n    id\\n    operation\\n    orgId\\n    object\\n    state\\n    startDateLong\\n    endDateLong\\n    signedUrl\\n    deferWelcomeEmails\\n    numberTotal\\n    numberNgpCompleted\\n    numberNgpFailed\\n    numberFinalCompleted\\n    numberFinalFailed\\n    resultLocation\\n    fileName\\n    __typename\\n  }\\n}\"\n}"
+          )).asJSON
+          .check(status.is(200))
+          .check(jsonPath("$.errors").validate(isNull[String]))
+      )
+  }
+
+
+  // Query Job History
+
+  val scnGetInfoForReportDownload = scenario("GetInfoForReportDownload").group(grpJob) {
+    feed(timestampFeeder)
+      .exec(
+        http("GetInfoForReportDownload")
+          .post("/graphql")
+          .headers(headers_common)
+          .body(StringBody(
+            "{\n  \"query\": \"query {\\n  getInfoForReportDownload(j:{id:\\\"NakLoGZ7SI\\\", orgId:2175}){\\n    id\\n    operation\\n    orgId\\n    object\\n    state\\n    fileName\\n    resultLocation\\n    startDateLong\\n    endDateLong\\n    signedUrl\\n    deferWelcomeEmails\\n    numberTotal\\n    numberNgpCompleted\\n    numberNgpFailed\\n    numberFinalCompleted\\n    numberFinalFailed\\n  }\\n}\\n\"\n}"
+          )).asJSON
+          .check(status.is(200))
+          .check(jsonPath("$.errors").validate(isNull[String]))
+      )
+  }
 
 
   /* Load Tests on Npo Page usecases */

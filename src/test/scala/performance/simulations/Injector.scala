@@ -45,8 +45,11 @@ class Injector extends Simulation {
     //postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnContentListing.inject(rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
-    //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnContentListing.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnQueryJobHistory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnQueryJobDetails.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetInfoForReportDownload.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+  //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
 
@@ -79,7 +82,14 @@ class Injector extends Simulation {
     */details(postRequest.grpSettings / "BrandSettings").responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpSettings / "BrandSettings").failedRequests.percent.lte( errorRate),
     details(postRequest.grpContentListing / "QueryContentListing" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpContentListing / "QueryContentListing" ).failedRequests.percent.lte( errorRate)
+    details(postRequest.grpContentListing / "QueryContentListing" ).failedRequests.percent.lte( errorRate),
+    details(postRequest.grpJob / "QueryJobHistory").responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpJob / "QueryJobHistory" ).failedRequests.percent.lte( errorRate),
+    details(postRequest.grpJob / "QueryJobDetails").responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpJob / "QueryJobDetails" ).failedRequests.percent.lte( errorRate),
+    details(postRequest.grpJob / "GetInfoForReportDownload").responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpJob / "GetInfoForReportDownload" ).failedRequests.percent.lte( errorRate)
+
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lte( errorRate)
 
