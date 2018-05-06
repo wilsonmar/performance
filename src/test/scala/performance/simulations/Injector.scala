@@ -45,7 +45,7 @@ class Injector extends Simulation {
     postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnContentListing.inject( rampUsersPerSec(1) to (1) during (rampTime seconds), constantUsersPerSec(1) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnContentListing.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnQueryJobHistory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnQueryJobDetails.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnGetInfoForReportDownload.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
