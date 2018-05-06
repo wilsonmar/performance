@@ -13,7 +13,7 @@ object JenkinsParam {
   val TEST_URL : String = sys.env.getOrElse("TEST_URL","http://ngp-perf-incaapp.herokuapp.com")
   val TEST_URL_SANDBOX_GREEN : String = sys.env.getOrElse("TEST_URL_SANDBOX_GREEN","http://sandboxincaapp.herokuapp.com/")
 
-  val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","4"))
+  val peakRPS : Double =  Double.parseDouble( getSetting("peakRPS","3"))
   val peakRPS_SequentialLoad : Double =  Double.parseDouble( getSetting("peakRPS_SequentialLoad","40"))
   val peakRPS_SequentialLoad_LowRPS : Double =  Double.parseDouble( getSetting("peakRPS_SequentialLoad_LowRPS","20"))
   val peakRPS_SandboxGreen : Double =  Double.parseDouble( getSetting("peakRPS_SandboxGreen","5"))
