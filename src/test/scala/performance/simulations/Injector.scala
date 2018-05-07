@@ -31,24 +31,24 @@ class Injector extends Simulation {
   setUp(
 
     // Load Injection
-    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnIsPersonActive.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnListCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnListSDG.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnCreateStory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnGetStory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnCreateCampaign.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnGetCampaign.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnCreateImpactFund.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnGetImpactFund.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnGetOrganization.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnContentListing.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnQueryJobHistory.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnQueryJobDetails.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
-    postRequest.scnGetInfoForReportDownload.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds),constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+    postRequest.scnListCauses.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnListSDG.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateStory.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetStory.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateCampaign.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetCampaign.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnCreateImpactFund.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetImpactFund.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(3) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetOrganization.inject( rampUsersPerSec(1) to (2) during (rampTime seconds), constantUsersPerSec(2) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnUpdatePrefCauses.inject( rampUsersPerSec(1) to (1) during (rampTime seconds), constantUsersPerSec(1) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnHomePageSettings.inject( rampUsersPerSec(1) to (1) during (rampTime seconds), constantUsersPerSec(1) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnBrandSettings.inject( rampUsersPerSec(1) to (1) during (rampTime seconds), constantUsersPerSec(1) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnContentListing.inject( rampUsersPerSec(1) to (3) during (rampTime seconds), constantUsersPerSec(2) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnQueryJobHistory.inject( rampUsersPerSec(1) to (2) during (rampTime seconds),constantUsersPerSec(2) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnQueryJobDetails.inject( rampUsersPerSec(1) to (2) during (rampTime seconds),constantUsersPerSec(2) during(steadyTime seconds)).protocols(httpTEST),
+    postRequest.scnGetInfoForReportDownload.inject( rampUsersPerSec(1) to (3) during (rampTime seconds),constantUsersPerSec(2) during(steadyTime seconds)).protocols(httpTEST)
   //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
