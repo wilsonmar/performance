@@ -109,7 +109,7 @@ task cmsQueryLoadTest(type: JavaExec) {
 }
 
 
-task dataLoader(type: JavaExec) {
+task contentDataLoader(type: JavaExec) {
     dependsOn testClasses
     description = "Load Test on CMS Query"
     group = "Load Test"
@@ -120,6 +120,24 @@ task dataLoader(type: JavaExec) {
     main = "io.gatling.app.Gatling"
     args = [
             "--simulation", "performance.simulations.Injector_TestData",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
+
+
+
+task qaTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Load Test on CMS Query"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_QA",
             "--results-folder", "${buildDir}/gatling-results",
 
     ]
