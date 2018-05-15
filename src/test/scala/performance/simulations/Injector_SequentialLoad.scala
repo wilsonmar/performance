@@ -33,8 +33,11 @@ class Injector_SequentialLoad extends Simulation {
 
     // Load Injection
 
+    postRequest.scnHomePageSettings.inject(rampUsersPerSec(1) to (peakRPS_SequentialLoad_LowRPS) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad_LowRPS) during(steadyTime seconds)).protocols(httpTEST)
 
-    postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
+
+
+    /*postRequest.scnQueryUserProfile.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     //postRequest.scnIsPersonActive.inject( nothingFor((steadyTime+rampTime+sleepTime) seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnListCauses.inject( nothingFor(((steadyTime+rampTime)*1)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnListSDG.inject( nothingFor(((steadyTime+rampTime)*2)+sleepTime seconds),rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
@@ -52,12 +55,16 @@ class Injector_SequentialLoad extends Simulation {
     postRequest.scnQueryJobDetails.inject( nothingFor(((steadyTime+rampTime)*14)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds),constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnGetInfoForReportDownload.inject( nothingFor(((steadyTime+rampTime)*15)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds),constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST),
     postRequest.scnContentListing.inject( nothingFor(((steadyTime+rampTime)*16)+sleepTime seconds), rampUsersPerSec(1) to (peakRPS_SequentialLoad_LowRPS) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad_LowRPS) during(steadyTime seconds)).protocols(httpTEST)
-
+*/
   //postRequest.scnCreateNpoPage.inject( rampUsersPerSec(1) to (peakRPS_SequentialLoad) during (rampTime seconds), constantUsersPerSec(peakRPS_SequentialLoad) during(steadyTime seconds)).protocols(httpTEST)
 
   ).assertions (
 
-    details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate)
+
+
+    /*details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpProfile / "QueryUserProfile" ).failedRequests.percent.lte( errorRate),
     //details(postRequest.grpPerson / "IsPersonActive" ).responseTime.mean.lte( meanResponseTime),
     //details(postRequest.grpPerson / "IsPersonActive" ).failedRequests.percent.lte( errorRate),
@@ -93,7 +100,7 @@ class Injector_SequentialLoad extends Simulation {
     details(postRequest.grpJob / "QueryJobDetails" ).failedRequests.percent.lte( errorRate),
     details(postRequest.grpJob / "GetInfoForReportDownload").responseTime.mean.lte( meanResponseTime),
     details(postRequest.grpJob / "GetInfoForReportDownload" ).failedRequests.percent.lte( errorRate)
-    //details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
+    *///details(postRequest.grpNpoPage / "CreateNpoPage" ).responseTime.mean.lte( meanResponseTime),
     //details(postRequest.grpNpoPage / "CreateNpoPage" ).failedRequests.percent.lte( errorRate)
 
   )

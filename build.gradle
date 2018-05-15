@@ -126,6 +126,22 @@ task contentDataLoader(type: JavaExec) {
 }
 
 
+task orgAndWorkplaceDataLoader(type: JavaExec) {
+    dependsOn testClasses
+    description = "Load Test on CMS Query"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_OrgTestData",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
+
 
 task qaTest(type: JavaExec) {
     dependsOn testClasses

@@ -15,8 +15,10 @@ class TestData extends Simulation {
   val headers_common = Map(
     "Content-Type" -> "application/json",
     "Accept" -> "application/json",
-    "Authorization" -> "Bearer eyJraWQiOiIyMTQiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSGdrYV93OGpOUjI1R0ZPbXpyVWFDdyIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQweDAwMDAwMDBOMnNFQUUvMDA1MHgwMDAwMDB5dG9DQUFRIiwiYXVkIjoiM01WRzlZYjVJZ3Fua0I0cUlCVUc3bHQ4RnEuS0FaVS5oX2hSWDlTR2t6eUZhb0tzbTdKTFouUFZLbnByOFNib2VEWGNLeVFvRzBVandCdklZQ1hEZyIsImlzcyI6Imh0dHBzOi8vcWEtcGhpbGFudGhyb3B5Y2xvdWQuY3M5NS5mb3JjZS5jb20iLCJleHAiOjE1MjU4MDg1NjIsImlhdCI6MTUyNTgwODQ0Miwibm9uY2UiOiIxNTI1ODA4Mzc5MjgyMDAiLCJjdXN0b21fYXR0cmlidXRlcyI6eyJVc2VybmFtZSI6InRrYWxlK3Rlc3QxQHNhbGVzZm9yY2UuY29tIn19.tJSp8F2dB1zoj9Pz9DmOh7-TV4izCXAYMfaQK45UHoClwSo0wHdU1QvehTskMMSgv2Sb4Z5ke9S41kY9Gr8Awj9ZxmJSKVENmki-0HD2J55LlCMlUxRQcmPcdT5DdFt8XFzyuDM-npW62cZnBaOHcoiPVdVZR--gg5hszm1V-6uOD61LmuAYepNRu4yf7G4xWFOsoZjuWcSbILhNg5rfFJysfdHT-n0uyVy7flHUho9f3euGg6OkJngty-Rex0Wy0UHe3C9v1TITkAoQyQ0uBfhLL82GuzmJs8zN8eJG_Kxb99-kifBXnsJbnDR7A2xYg8PlizXHHudnwphlZ_-3ooS0PA6cGGfD5GawKqmSva6RrV7k3USXVpOYdn9DcUy9GVSpTbCMMl-MoqB89ys3H-kop352A6PDHNpu42Ri96OCgQk1XuVdwnUhG2tbVqt3hLwEzD-v4CJ88RMFWZSNxpdERf_ofqDxBseBN670w5x6ulTuSARFVNWIhCRagjuXU8FJyRAVuOQlgsCd1K03fhv932AFJZt4bJbqFm3lDGS3J_bWBsrb8NXwC00NtjnG5pbxQuUYbvs_y86YrcFlm5cUT2AYdEhss8AFq34pChzIlBJFampTjDfut6pym0yQOcWoc7mIhfm2luKDaI6ct1wp-EwHRY9Tz5GJFsqrnJQ"
+    "Authorization" -> "Bearer eyJraWQiOiIyMTQiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiS25NY0FsZUQ4ZE5XcWxMTFp3ODFZZyIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQweDAwMDAwMDBOMnNFQUUvMDA1MHgwMDAwMDB5dG9DQUFRIiwiYXVkIjoiM01WRzlZYjVJZ3Fua0I0cUlCVUc3bHQ4RnEuS0FaVS5oX2hSWDlTR2t6eUZhb0tzbTdKTFouUFZLbnByOFNib2VEWGNLeVFvRzBVandCdklZQ1hEZyIsImlzcyI6Imh0dHBzOi8vcWEtcGhpbGFudGhyb3B5Y2xvdWQuY3M5NS5mb3JjZS5jb20iLCJleHAiOjE1MjYzNzExMjcsImlhdCI6MTUyNjM3MTAwNywibm9uY2UiOiIxNTI2MzcwOTU5NjQxMDAiLCJjdXN0b21fYXR0cmlidXRlcyI6eyJVc2VybmFtZSI6InRrYWxlK3Rlc3QxQHNhbGVzZm9yY2UuY29tIn19.nUWmiFMlmAPPBteHw7FrsuwRg7edqOhgDTaRk6NZiJJRWg0ME4rndclwJGvvuJY1Y5gJqS4jJFxTuSS3RopHiqD4dSA6yqOfY1E9fLG_RR6pci6Y1hhFEPz9FRBbQr_2kw3ZO_YuFZ2upC8h77iKTKI34i3k6PL71gGjceJ0iLuWw2RHXayaebsInK-lVsgSnsZiKWj-6IolTIquUiIaW-dgrc-K0KeyL1YWP1gOX6-_qO6tocpuAoqFNOJZE0eo2JNfpO2E3X_qjvTtEyOwrxWb5RABT_MBhf-YrXMnjh_v-YVSrzKnuoMAJuZoCcGG7sNTSdO0k2jKWqN3zvZG9unJLEzwyIzlq5lQAICI-0q4-QSQ5-Uwpsj-wlgjE0D5MRc3B0v__P1UZTtpJoXoI_RK4ciUlSHZnf5MvT15icj0tJMhd78Xx0rslV5oKI8h21DxOJzEa5F0V0r53NrDCB1EvfqiioPpP3BBs9IzyvvveKqYTJKWPvj5Uz0jl7c69cT7L6JRy81bnsuj_beTGcs2-FlF-ZUIpBhAqM2AbBvOVKlBzgOPn0NfBv_DAX3VnC2zrkhulSKY24F-sUXViYRaAU7w980nF1OfTu7FL_rMT3_iHlaI_k0WAeV9isbnAylyP5tawDQvOrjqApRKvtsgm_pCxTp2IAtrVaWnRvQ"
   )
+
+  val orgLoader = csv("src/test/resources/performance/data/orgTestData.csv")
 
   def isNull[T] = new Validator[T] {
     val name = "isNull"
@@ -84,6 +86,39 @@ class TestData extends Simulation {
           .headers(headers_common)
           .body(StringBody(
             "{\"operationName\":\"saveImpactFund\",\"variables\":{\"orgId\":2175,\"input\":{\"publishDate\":\"2018-04-24T07:00:00.000Z\",\"expirationDate\":\"2018-05-13T07:00:00.000Z\",\"publishState\":\"Published\",\"tags\":{\"causeIds\":[\"2001\",\"2003\",\"2004\",\"2008\"],\"sdgIds\":[\"1010\",\"1014\",\"1015\",\"1003\"]},\"scope\":{\"workplace\":[{\"id\":2175}],\"country\":[\"US\"],\"whereRaised\":[],\"location\":[]},\"localized\":{\"locale\":\"en_US\",\"name\":\"PerfImpactFund\",\"subheading\":\"PerfImpactFund\",\"excerpt\":\"PerfImpactFund\",\"ctaText\":\"Donate\",\"description\":\"<p>PerfImpactFund</p>\",\"primaryImageCrid\":\"oblnsadjezkorcvic4ci\"},\"accountingCode\":\"PerfFund\"}},\"query\":\"mutation saveImpactFund($orgId: ID!, $impactFundId: ID, $input: ImpactFundInput!) {\\n  impactFund(orgId: $orgId, impactFundId: $impactFundId, input: $input) {\\n    ...EditImpactFund\\n    __typename\\n  }\\n}\\n\\nfragment EditImpactFund on ImpactFund {\\n  accountingCode\\n  tag: __typename\\n  id\\n  localized {\\n    locale\\n    name\\n    primaryImageCrid\\n    primaryImageAlt\\n    excerpt\\n    subheading\\n    ctaText\\n    featuredVideo\\n    description\\n    __typename\\n  }\\n  modifiedDate\\n  createdDate\\n  publishDate\\n  publishState\\n  expirationDate\\n  causes {\\n    id\\n    name\\n    __typename\\n  }\\n  sdgs {\\n    id\\n    name\\n    __typename\\n  }\\n  author {\\n    id\\n    firstName\\n    lastName\\n    __typename\\n  }\\n  scope {\\n    workplace {\\n      id\\n      name\\n      __typename\\n    }\\n    country\\n    whereRaised {\\n      id\\n      name\\n      __typename\\n    }\\n    location {\\n      latitude\\n      longitude\\n      unit\\n      label\\n      radius\\n      __typename\\n    }\\n    __typename\\n  }\\n  modifiedBy {\\n    id\\n    firstName\\n    lastName\\n    __typename\\n  }\\n}\\n\"}"
+
+          )).asJSON
+          .check(status.is(200))
+          .check(jsonPath("$.errors").validate(isNull[String]))
+      )
+  }
+
+
+
+  /* Create Organization and Workplace*/
+  val grpOrganization = "Organization"
+  val scnCreateOrganization = scenario("CreateOrganization").group(grpOrganization) {
+    feed(timestampFeeder)
+      .feed(timestampFeeder2)
+      .exec(
+        http("CreateOrganization")
+          .post("/graphql")
+          .headers(headers_common)
+          .body(StringBody(
+            "{\n  \"query\": \"mutation {\\n      createOrganization( \\n        name: \\\"PerfOrg_${getTimeinMS}\\\"\\n        dba: \\\"AX\\\"\\n        street: \\\"2112 Laguna St\\\"\\n        street2: \\\"#201\\\"\\n        city: \\\"Pleasanton\\\"\\n        state: \\\"CA\\\"\\n        postalCode: \\\"23456\\\"\\n        postalCodeExt: \\\"23\\\"\\n        country: \\\"US\\\"    \\n        phone: \\\"4089140148\\\"\\n        website: \\\"www.sfdo.org\\\"\\n        defaultLanguage: \\\"en_US\\\"\\n        defaultCurrency: \\\"USD\\\"\\n        timeZone: \\\"PST\\\"   \\n        isUnitedWay: true\\n      )\\n      {\\n          id\\n        name\\n        dba\\n    \\n      }\\n    }\"\n}"
+
+          )).asJSON
+          .check(status.is(200))
+          .check(jsonPath("$.errors").validate(isNull[String]))
+          .check(jsonPath("$.data.createOrganization.id").saveAs("orgId"))
+      )
+
+      .exec(
+        http("CreateWorkplace")
+          .post("/graphql")
+          .headers(headers_common)
+          .body(StringBody(
+            "{\n  \"query\": \"mutation {\\n  createWorkplace(orgId:${orgId}, processorId:1000, division: \\\"Perf Engineering\\\", reseller: 1000) {\\n    id\\n    \\n  }\\n}\"\n}"
 
           )).asJSON
           .check(status.is(200))
