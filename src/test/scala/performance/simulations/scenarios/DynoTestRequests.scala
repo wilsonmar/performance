@@ -45,4 +45,18 @@ class DynoTestRequests extends Simulation {
           ))
   }
 
+  val scnUpdateLog = scenario("UpdateLog").group(grpDyno) {
+    feed(timestampFeeder)
+      .exec(
+        http("UpdateLog")
+          .post("""/loggers/com.sfdo.ngp""")
+          .headers(headers_common)
+          .body(StringBody(
+            """{
+                "configuredLevel": "INFO"
+              }""")).asJSON
+          .check(status.is(200))
+          )
+  }
+
 }
