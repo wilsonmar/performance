@@ -32,13 +32,13 @@ class Injector_Dyno extends Simulation {
   setUp(
 
     // Load Injection
-    dynoRequests.scnQueryHealth.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    //dynoRequests.scnQueryHealth.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     dynoRequests.scnUpdateLog.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
 
 
   ).assertions (
-    details(dynoRequests.grpDyno / "QueryHealth" ).responseTime.mean.lte( meanResponseTime),
-    details(dynoRequests.grpDyno / "QueryHealth" ).failedRequests.percent.lte( errorRate),
+    //details(dynoRequests.grpDyno / "QueryHealth" ).responseTime.mean.lte( meanResponseTime),
+    //details(dynoRequests.grpDyno / "QueryHealth" ).failedRequests.percent.lte( errorRate),
     details(dynoRequests.grpDyno / "UpdateLog" ).responseTime.mean.lte( meanResponseTime),
     details(dynoRequests.grpDyno / "UpdateLog" ).failedRequests.percent.lte( errorRate)
   )
