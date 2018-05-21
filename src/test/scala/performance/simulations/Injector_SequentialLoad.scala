@@ -60,8 +60,8 @@ class Injector_SequentialLoad extends Simulation {
 
   ).assertions (
 
-    details(postRequest.grpSettings / "HomePageSettings" ).responseTime.mean.lte( meanResponseTime),
-    details(postRequest.grpSettings / "HomePageSettings" ).failedRequests.percent.lte( errorRate)
+    details(postRequest.grpStory / "GetStory" ).responseTime.mean.lte( meanResponseTime),
+    details(postRequest.grpStory / "GetStory" ).failedRequests.percent.lte( errorRate)
 
 
     /*details(postRequest.grpProfile / "QueryUserProfile" ).responseTime.mean.lte( meanResponseTime),
