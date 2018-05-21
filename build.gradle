@@ -175,3 +175,20 @@ task dynoLoadTest(type: JavaExec) {
 
     ]
 }
+
+
+task externalapiLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Load Test on External API Get Person"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_ExternalAPI",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
