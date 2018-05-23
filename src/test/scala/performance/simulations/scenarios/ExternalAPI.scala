@@ -21,7 +21,7 @@ class ExternalAPI extends Simulation {
     "Authorization" -> "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlckBzYWxlc2ZvcmNlLmNvbS5xYSIsImF1ZCI6Imh0dHBzOlwvXC90ZXN0LnNhbGVzZm9yY2UuY29tXC9pZFwvMDBEMHQwMDAwMDA4Zng5RUFBXC8wMDUxSTAwMDAwMVB3cXFRQUMiLCJpc3MiOiJodHRwczpcL1wvcWEtcGhpbGFudGhyb3B5Y2xvdWQuY3M5NS5mb3JjZS5jb20iLCJleHAiOjE1MjY5NjE5MzEsImN1c3RvbV9hdHRyaWJ1dGVzIjp7IlVzZXJuYW1lIjoidGVzdHVzZXJAc2FsZXNmb3JjZS5jb20ucWEifX0.L1bKOrZs--Uz3u7OLKc_MZGymnsqglGeABG6ETT5Q6EKqgUOnRjincOJ5HUWQ8wHnkLQjpsDFI0IwYNtSdqPTXAQoLN66iYw3q5iqAuHMvHrO71IeJWH5MRQGieCrT-aYguRtvyA_EyeGrm9GnW_Es8G1lIIhyJbhhHCVb5ltec"
   )
 
-  val personFeeder = csv("src/test/resources/performance/data/person.csv").circular
+  val personFeeder = csv("src/test/resources/performance/data/person.csv").random
 
 
   // External API - Get Person
