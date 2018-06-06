@@ -192,3 +192,20 @@ task externalapiLoadTest(type: JavaExec) {
 
     ]
 }
+
+
+task hanLoadTest(type: JavaExec) {
+    dependsOn testClasses
+    description = "Load Test on External API Get Person"
+    group = "Load Test"
+    classpath = sourceSets.test.runtimeClasspath
+    jvmArgs = [
+            "-Dlogback.configurationFile=${logbackGatlingConfig()}",
+    ]
+    main = "io.gatling.app.Gatling"
+    args = [
+            "--simulation", "performance.simulations.Injector_Han",
+            "--results-folder", "${buildDir}/gatling-results",
+
+    ]
+}
