@@ -45,7 +45,7 @@ class PostRequests extends Simulation {
           .headers(headers_common)
           .body(StringBody(
             """{
-                "query": "query{\n  me {\n    person {\n      id\n      firstName\n      lastName\n      jobTitle\n      email\n      phone\n      avatar\n      languagePreference\n      address\n      city\n      totalDonated\n      state\n      zip\n      unitedWay\n      organizations {\n        id\n        name\n        __typename\n      }\n      causes {\n        id\n        name\n        __typename\n      }\n      transactions {\n        id\n        date\n        amount\n        __typename\n      }\n    }\n    __typename\n  }\n}\n"
+                "query": "query{\n  me {\n    person {\n      id\n      firstName\n      lastName\n      jobTitle\n      email\n      phone\n      avatar\n      languagePreference\n      address\n      city\n      totalDonated\n      state\n      zip\n      unitedWay\n      organizations {\n        id\n        name\n       roles\n        type\n        __typename\n      }\n      causes {\n        id\n        name\n        __typename\n      }\n      transactions {\n        id\n        date\n        amount\n        __typename\n      }\n    }\n    __typename\n  }\n}\n"
               }""")).asJSON
           .check(status.is(200))
           .check(jsonPath("$.errors").validate(isNull[String])
