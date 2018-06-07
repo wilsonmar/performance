@@ -46,7 +46,7 @@ class HanRequests extends Simulation {
           .queryParam("stripeToken","testuser@salesforce.com.qa")
           .headers(headers_common)
           .check(status.is(200))
-          ))
+          )
 
   }
 
