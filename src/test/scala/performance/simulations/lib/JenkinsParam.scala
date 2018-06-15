@@ -11,6 +11,7 @@ object JenkinsParam {
 
   //val TEST_URL : String = sys.env.getOrElse("TEST_URL","https://ngp-perf-zuulapp.makanaplatform.com")
   val TEST_URL : String = sys.env.getOrElse("TEST_URL","http://ngp-perf-incaapp.herokuapp.com")
+  val TEST_ZUUL_URL : String = sys.env.getOrElse("TEST_ZUUL_URL","http://ngp-perf-zuulapp.herokuapp.com")
   val TEST_HAN_URL : String = sys.env.getOrElse("TEST_HAN_URL","http://ngp-perf-hanapp.herokuapp.com")
   val TEST_URL_SANDBOX_GREEN : String = sys.env.getOrElse("TEST_URL_SANDBOX_GREEN","http://sandboxincaapp.herokuapp.com/")
 
