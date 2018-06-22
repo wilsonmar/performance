@@ -15,10 +15,14 @@ class HanRequests extends Simulation {
   val headers_common = Map(
     "Content-Type" -> "application/json",
     "Accept" -> "application/json",
-    "Authorization" -> "Bearer eyJraWQiOiIyMTQiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiVXVRVkVxOWVyTU9PNWRHZXRaVEdLdyIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQweDAwMDAwMDBOMnNFQUUvMDA1MHgwMDAwMDBtRmR5QUFFIiwiYXVkIjoiM01WRzlZYjVJZ3Fua0I0cUlCVUc3bHQ4RnEuS0FaVS5oX2hSWDlTR2t6eUZhb0tzbTdKTFouUFZLbnByOFNib2VEWGNLeVFvRzBVandCdklZQ1hEZyIsImlzcyI6Imh0dHBzOi8vcWEtcGhpbGFudGhyb3B5Y2xvdWQuY3M5NS5mb3JjZS5jb20iLCJleHAiOjE1MjYzMTYzNTYsImlhdCI6MTUyNjMxNjIzNiwibm9uY2UiOiIxNTI2MzE2MTU2MTEyMDAiLCJjdXN0b21fYXR0cmlidXRlcyI6eyJVc2VybmFtZSI6InRlc3R1c2VyQHNhbGVzZm9yY2UuY29tLnFhIn19.luJXakN2DA5G80ALQgHYAyNOM39plYlXkxHi7A6m3_eRtFdMOnxyQ094tyJxLI75DxOozCtjaa0HQ8uRUChxfp8sIPtHhXM7P8v4cpvxSMtxAz0Q-1dNi0GoXccdZhAlHj6vg6-yR1vjZxQoDZZC0gsucqdvWXygJNWbcSokrvAWl3rVVRe2SZqlMP-Q7qQQE_Y-uLU8r0j6TwCM3rXntqEtpFTw-1sOQWoaRp59v8612067lxX4ZL0wm6bFGIYenjNQtc2RLvjfc88fz8ssMrYkA8qBV06CYtiETy0EbWXg1ekLqq-HsqZpjmBQicvtZ1Z4d1-ODmY9Wr0QJ3WUgcVw-XrGrVCSU_iurY70uIRhGmuFZ_p7tHSzuWC-EiX7CdbbHsSeM2j6mqoLqXylizZYIH7se_xzWiBblg6qHr_lKklO8jLFCxfHN1IW0YwDQe6ypCyJjzD8iUdVgC-enTvMrzdvFOadrg5jxORJcAuad3kstShuIqPL_Y5gfT7QHM8j_8rScAi7AN6pBwUkMA26AIXgihLuljTHo4hXTs258cZ7eKo3TBdG1WclHpbbGy0D5IPkBp7KyhTJOhJU8bs8QKO-Q17tilNNOPTEsc34pWnP8d_DXWLFlFfwd78KbhyvJFbfk_BC8zYE8eJY9-SMHTrzd6Ig2yAnsZYotf8"
+    "Authorization" -> "Bearer eyJraWQiOiIyMTQiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiOWdfelhFOElPSUVvTHlpMTlxU3p0QSIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQweDAwMDAwMDBOMnNFQUUvMDA1MHgwMDAwMDB5dG9DQUFRIiwiYXVkIjoiM01WRzlZYjVJZ3Fua0I0cUlCVUc3bHQ4RnEuS0FaVS5oX2hSWDlTR2t6eUZhb0tzbTdKTFouUFZLbnByOFNib2VEWGNLeVFvRzBVandCdklZQ1hEZyIsImlzcyI6Imh0dHBzOi8vcWEtcGhpbGFudGhyb3B5Y2xvdWQuY3M5NS5mb3JjZS5jb20iLCJleHAiOjE1Mjk2NTUzNzksImlhdCI6MTUyOTY1NTI1OSwibm9uY2UiOiIxNTI5NjU1MjMzMjA3MDAiLCJjdXN0b21fYXR0cmlidXRlcyI6eyJVc2VybmFtZSI6InRrYWxlK3Rlc3QxQHNhbGVzZm9yY2UuY29tIn19.n2FlK7RvKO-uc_VeVEuKdklOObxvDaz3MjVlknlMzuAqqBP3zbErL9xjaEuHAGKohS4t-8-bFk1-uZ4lFzBF3aKrfRqF4SgHFb_woiuRm-o_DgOPwoz9bUaZp1G8-iYAM3nMhjiDwzu3nHWSU66ykg6AGko0kLlI3eNpoP8Q4A_PcBh-POm74TC-lbintTf3Nef52AUjVwbqb-LO6yQT1Vp5ErRCkAr1d6FqbMXY2IDsAECkgLXhBekq23c56cSYbO29Y4fz7kS29u6WQEgHAvD-4sRggr33jTKNmTnY08htupBCWtgLRC-Jbt_uwnnMDlxp3qwaYoZZfVUvo0uWpxaP0iFWowSTSqwbe6JaAuMggosVmTlXSdojqH75wikF60r53kc_e5cM1OnvTDH-sjQzc2QLal4QtEgohHSKwVGX969XgYNWsqK1CA0e0pT5sv5caVqF7LBmGCYvLSlt8P0cvFzZ_Qmgnh2e9DFv18EtmGTKuqe9QI6-_Xpz9tyGwGroSStwipiP_eOIzJ-cD_4xc6L8pscu3ms-IbHtapWxSgi8q2DYbpNQj4tGD7KHF3EpYIadux2kP4gkC6mNC5KjB5nQLctle29P4oo5qJ5Zm6hIo4xD-B7rMoyV3I1WqDV9FL5_-wdG2OoLr5lrV4ziaMK7a6sa0zuBNrFmdUU"
   )
 
   val dataFeeder = csv("src/test/resources/performance/data/organization2.csv").random
+  val processorFeeder = csv("src/test/resources/performance/data/processor.csv").random
+  val campaignFeeder = csv("src/test/resources/performance/data/campaign.csv").random
+
+
 
   def isNull[T] = new Validator[T] {
     val name = "isNull"
@@ -94,9 +98,11 @@ class HanRequests extends Simulation {
 
   val scnGetOauthURL = scenario("GetOauthURL").group(grpConnectUserController) {
     feed(timestampFeeder)
+      .feed(processorFeeder)
       .exec(
         http("GetOauthURL")
-          .get("""/oauth_url/2171""")
+          .get("""/oauth_url/${processor_id}""")
+          .headers(headers_common)
           .check(status.is(200))
       )
   }
@@ -121,7 +127,8 @@ class HanRequests extends Simulation {
     feed(timestampFeeder)
       .exec(
         http("GetCreditCard")
-          .get("""/creditcard/createTestCard/testuser@salesforce.com.qa""")
+          .get("""/creditcard/createTestCard/tkale+test1@salesforce.com""")
+          .headers(headers_common)
           .check(status.is(200))
       )
   }
@@ -160,12 +167,17 @@ class HanRequests extends Simulation {
 
   val scnCreateDonation = scenario("CreateDonation").group(grpDonationController) {
     feed(timestampFeeder)
+      .feed(campaignFeeder)
       .exec(
         http("CreateDonation")
           .post("/graphql")
           .headers(headers_common)
           .body(StringBody(
-            "{\n  \"query\": \"mutation{\\n createDonation(\\n   dInput: {\\n     contentId: 1344150\\n     workplaceId: 2261\\n     currency: \\\"USD\\\"\\n     paymentMethodDetailInput: {\\n       type: ONE_TIME_CREDIT_CARD\\n       oneTimeCreditCardToken: \\\"tok_bypassPending\\\"\\n     }\\n     designations: [\\n       {\\n         designeeId: 1344149 \\n         amount: 2500\\n       }\\n       {\\n         designeeId: 1344148 \\n         amount: 2500\\n       }\\n     ]      \\n   }\\n ){\\n   createdTime,\\n   currency,\\n   paymentMethod,\\n   designations{\\n     id,\\n     name,\\n     status,\\n     paidAmount,\\n     channelFee,\\n     plegedAmount,\\n     paidUSDAmount,\\n     plegedUSDAmount,\\n     channelTransactionId,\\n     applicationFee      \\n   }\\n }\\n}\"\n}"
+            """{
+                "query": "mutation{\n createDonation(\n   dInput: {\n     contentId: ${id}\n     workplaceId: 2169\n     currency: \"USD\"\n     paymentMethodDetailInput: {\n       type: ONE_TIME_CREDIT_CARD\n       oneTimeCreditCardToken: \"tok_bypassPending\"\n     }\n     designations: [\n       {\n         designeeId: 922138 #NPO page\n         amount: 2500\n      },\n      {\n         designeeId: 922142 #NPO page\n         amount: 2500\n      },\n      {\n         designeeId: 2636608 #NPO page\n         amount: 2500\n      },{\n         designeeId: 2636602 #NPO page\n         amount: 2500\n      }\n      \n     ]      \n   }\n ){\n   id\n   createdTime,\n   currency,\n   paymentMethod,\n   designations{\n     id,\n     name,\n     status,\n     paidAmount,\n     channelFee,\n     plegedAmount,\n     paidUSDAmount,\n     plegedUSDAmount,\n     channelTransactionId,\n     applicationFee      \n   }\n }\n}"
+              }"""
+
+
           )).asJSON
           .check(status.is(200))
           .check(jsonPath("$.errors").validate(isNull[String]))
@@ -287,10 +299,11 @@ class HanRequests extends Simulation {
       .exec(
         http("HbaseFindBy")
           .get("""/hbase-service/findBy""")
-          .queryParam("workplaceId","2171")
+          .headers(headers_common)
+          .queryParam("workplaceId","2169")
           .queryParam("personId","1024")
-          .queryParam("startTime","20180405")
-          .queryParam("endTime","20180605")
+          .queryParam("startTime","1529103066635")
+          .queryParam("endTime","1529657832319")
           .check(status.is(200))
       )
   }

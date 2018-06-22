@@ -13,12 +13,16 @@ import scala.concurrent.duration._
 
 class Injector_Han extends Simulation {
 
-  val httpTEST = http
+  val httpTEST_HAN = http
     .baseURL(TEST_HAN_URL)
     .acceptHeader("text/html,application/xhtml+xml,application/xml:q=0.9,image/webp,*/*:q-0.8")
     .acceptLanguageHeader("en-US,en;q=0.8")
     //.connection("""keep-alive""")
 
+  val httpTEST = http
+    .baseURL(TEST_ZUUL_URL)
+    .acceptHeader("text/html,application/xhtml+xml,application/xml:q=0.9,image/webp,*/*:q-0.8")
+    .acceptLanguageHeader("en-US,en;q=0.8")
 
   //Instantiating PostNotification
   val hanRequest = new HanRequests
@@ -31,7 +35,7 @@ class Injector_Han extends Simulation {
   setUp(
 
     // Load Injection
-    hanRequest.scnChargeSimple.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    /*hanRequest.scnChargeSimple.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     hanRequest.scnCreateCheckout.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     hanRequest.scnGetCheckout.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     hanRequest.scnUpdateCheckout.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
@@ -47,6 +51,11 @@ class Injector_Han extends Simulation {
     hanRequest.scnGetDonation.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     hanRequest.scnHbaseFindBy.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     hanRequest.scnReceiveEvent.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST)
+*/
+    hanRequest.scnGetOauthURL.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN),
+    hanRequest.scnCreateDonation.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
+    hanRequest.scnGetCreditCard.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN),
+    hanRequest.scnHbaseFindBy.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN)
 
   ).assertions (
 
