@@ -55,11 +55,12 @@ class Injector_Han extends Simulation {
     hanRequest.scnGetOauthURL.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN),
     hanRequest.scnCreateDonation.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST),
     hanRequest.scnGetCreditCard.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN),
+   // hanRequest.scnGetDonation.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN),
     hanRequest.scnHbaseFindBy.inject( rampUsersPerSec(1) to (peakRPS) during (rampTime seconds), constantUsersPerSec(peakRPS) during(steadyTime seconds)).protocols(httpTEST_HAN)
 
   ).assertions (
 
-    details(hanRequest.grpCSController / "ChargeSimple" ).responseTime.mean.lte( meanResponseTime),
+    /*details(hanRequest.grpCSController / "ChargeSimple" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpCSController / "ChargeSimple" ).failedRequests.percent.lte( errorRate),
     details(hanRequest.grpCheckoutController / "CreateCheckout" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpCheckoutController / "CreateCheckout" ).failedRequests.percent.lte( errorRate),
@@ -69,29 +70,29 @@ class Injector_Han extends Simulation {
     details(hanRequest.grpCheckoutController / "UpdateCheckout" ).failedRequests.percent.lte( errorRate),
     details(hanRequest.grpConnectUserController / "ConnectUser" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpConnectUserController / "ConnectUser" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpConnectUserController / "GetOauthURL" ).responseTime.mean.lte( meanResponseTime),
+    */details(hanRequest.grpConnectUserController / "GetOauthURL" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpConnectUserController / "GetOauthURL" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpCreditCardController / "AddCreditCard" ).responseTime.mean.lte( meanResponseTime),
+    /*details(hanRequest.grpCreditCardController / "AddCreditCard" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpCreditCardController / "AddCreditCard" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpCreditCardController / "GetCreditCard" ).responseTime.mean.lte( meanResponseTime),
+    */details(hanRequest.grpCreditCardController / "GetCreditCard" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpCreditCardController / "GetCreditCard" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpCustomerController / "CreateCustomer" ).responseTime.mean.lte( meanResponseTime),
+    /*details(hanRequest.grpCustomerController / "CreateCustomer" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpCustomerController / "CreateCustomer" ).failedRequests.percent.lte( errorRate),
     details(hanRequest.grpCustomerController / "GetCustomer" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpCustomerController / "GetCustomer" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpDonationController / "CreateDonation" ).responseTime.mean.lte( meanResponseTime),
+    */details(hanRequest.grpDonationController / "CreateDonation" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpDonationController / "CreateDonation" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpDonationController / "CreateDonationStripe" ).responseTime.mean.lte( meanResponseTime),
+    /*details(hanRequest.grpDonationController / "CreateDonationStripe" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpDonationController / "CreateDonationStripe" ).failedRequests.percent.lte( errorRate),
     details(hanRequest.grpDonationController / "CreateDonationOffline" ).responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpDonationController / "CreateDonationOffline" ).failedRequests.percent.lte( errorRate),
     details(hanRequest.grpDonationController / "GetDonation").responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpDonationController / "GetDonation").failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpHbaseServiceController / "HbaseFindBy" ).responseTime.mean.lte( meanResponseTime),
-    details(hanRequest.grpHbaseServiceController / "HbaseFindBy" ).failedRequests.percent.lte( errorRate),
-    details(hanRequest.grpStripeEventController / "ReceiveEvent").responseTime.mean.lte( meanResponseTime),
+    */details(hanRequest.grpHbaseServiceController / "HbaseFindBy" ).responseTime.mean.lte( meanResponseTime),
+    details(hanRequest.grpHbaseServiceController / "HbaseFindBy" ).failedRequests.percent.lte( errorRate)
+    /*details(hanRequest.grpStripeEventController / "ReceiveEvent").responseTime.mean.lte( meanResponseTime),
     details(hanRequest.grpStripeEventController / "ReceiveEvent" ).failedRequests.percent.lte( errorRate)
-  )
+ */ )
 
   after {
     println("Completed Gatling test")
