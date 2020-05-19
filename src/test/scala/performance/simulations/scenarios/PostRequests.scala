@@ -7,9 +7,6 @@ import io.gatling.http.Predef._
 import performance.simulations.lib.CommonHeader._
 import performance.simulations.lib.JenkinsParam._
 
-/**
-  * Created by Tarun Kale
-  */
 
 class PostRequests extends Simulation {
 
