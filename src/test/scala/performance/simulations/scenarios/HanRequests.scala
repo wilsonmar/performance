@@ -6,17 +6,12 @@ import io.gatling.core.check._
 import io.gatling.http.Predef._
 import performance.simulations.lib.CommonHeader._
 
-/**
-  * Created by Tarun Kale
-  */
 
 class HanRequests extends Simulation {
 
   val headers_common = Map(
     "Content-Type" -> "application/json",
-    "Accept" -> "application/json",
-    "Authorization" -> "Bearer eyJraWQiOiIyMTQiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoicHNBRkxlaU1wZnVPQWRsYVcwQmJkdyIsInN1YiI6Imh0dHBzOi8vdGVzdC5zYWxlc2ZvcmNlLmNvbS9pZC8wMEQweDAwMDAwMDBOMnNFQUUvMDA1MHgwMDAwMDB5dG9DQUFRIiwiYXVkIjoiM01WRzlZYjVJZ3Fua0I0cUlCVUc3bHQ4RnEuS0FaVS5oX2hSWDlTR2t6eUZhb0tzbTdKTFouUFZLbnByOFNib2VEWGNLeVFvRzBVandCdklZQ1hEZyIsImlzcyI6Imh0dHBzOi8vcWEtcGhpbGFudGhyb3B5Y2xvdWQuY3M5NS5mb3JjZS5jb20iLCJleHAiOjE1Mjk5OTU3OTQsImlhdCI6MTUyOTk5NTY3NCwibm9uY2UiOiIxNTI5OTk1NTQ4NTk4MDAiLCJjdXN0b21fYXR0cmlidXRlcyI6eyJVc2VybmFtZSI6InRrYWxlK3Rlc3QxQHNhbGVzZm9yY2UuY29tIn19.AiDwcVD-mVRVaG8JIRQIienYAQy8FQt_45Hgt7bAyVzb7_-pcbKSDXo9vTLjRh7YavrL1YVr8b7mOFMp3i3xzDZLVGq9MaQXd1Z5xAfbYa7A8Lhg58JP_82BlDRVNe7xdVxMrX46FjHswX1jl7ZbtqkLYEo255XGKwq4C0AnhqdkM4Bwc-uUSZuuRHhF7v5w3BazI6tZ6d4j99evvMr80yh7KQfHPg80avwBdICxdwRLtJdUuZBSVzwRwx3PhdjDkKaa7knumDyDeyOpW-cqaTbd6YD5pHYbgjXCnwk6XqZ5NM7mHF_pZ58k3xM6n1T_RTe3prA2IwNwnpzPJBadb-iysjkSyf8ky6VrlJNMIuZSuNFoET2iK4DG01sllUywQVN93IwYvTZjm_SlS9RpzNyqZdPeqjmU9o7mvFIe8-IcfbelWDbHYZsRfqDrKNJHecE4O5EPLXOJ8jZWDO6L33gy25Fi4SyLDqw4OuY2KB7rcUisjbLIhKi7SdvJ1kFuYrHtvHjLNLm7nmE9NMY0nZColjrBh1M7jbWMFuC8Pe9X-m-vydbVLsCzqUQBwFZcuQWsY_8ms55T7x9dBIvG8M97NTFL2hcYBSQilLQQICmJ8AuPsC9yn4VGt5Z3dejg3U7UVddTSjHWzr5Lj2gUJwu_B7YWgJWrqn7Yjw9UXsE"
-  )
+    "Accept" -> "application/json"  )
 
   val dataFeeder = csv("src/test/resources/performance/data/organization2.csv").random
   val processorFeeder = csv("src/test/resources/performance/data/processor.csv").random
